@@ -1,6 +1,16 @@
 @media (max-width: 768px) {
-    .navbar .nav-links {
+    .navbar .container {
         flex-direction: column;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%; /* Garante que a lista ocupe a largura total da tela */
+        align-items: center; /* Centraliza os itens dentro da lista */
+    }
+
+    .nav-links li {
+        margin: 0.5rem 0; /* Ajusta o espaçamento vertical entre os itens */
     }
 }
 
