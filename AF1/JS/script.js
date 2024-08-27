@@ -13,50 +13,25 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Accordion Functionality
-    const accordionButtons = document.querySelectorAll('.accordion-button');
-    const serviceImage = document.getElementById('service-image-img');
-    
-    accordionButtons.forEach(button => {
+    const servicesButtons = document.querySelectorAll('.services-button');
+
+    servicesButtons.forEach(button => {
         button.addEventListener('click', function() {
-            const content = this.nextElementSibling;
-            const isActive = content.style.display === 'block';
-            
-            // Close all open items
-            document.querySelectorAll('.accordion-content').forEach(item => {
-                item.style.display = 'none';
+            const servicesItem = this.parentNode;
+            const isActive = servicesItem.classList.contains('active');
+
+            // Fecha todos os itens
+            document.querySelectorAll('.services-item').forEach(item => {
+                item.classList.remove('active');
             });
-            
-            // Update image if not active
+
+            // Se o item clicado não estava ativo, ativa ele
             if (!isActive) {
-                content.style.display = 'block';
-                const imgSrc = this.parentElement.getAttribute('data-image');
-                serviceImage.src = imgSrc;
-            } else {
-                serviceImage.src = ''; // Clear image if closing
+                servicesItem.classList.add('active');
             }
         });
     });
 });
-
-document.querySelectorAll('.accordion-button').forEach(button => {
-    button.addEventListener('click', () => {
-        const accordionItem = button.parentElement;
-        const imageSrc = accordionItem.getAttribute('data-image');
-        const serviceImage = document.getElementById('service-image-img');
-        
-        document.querySelectorAll('.accordion-item').forEach(item => item.classList.remove('active'));
-        accordionItem.classList.add('active');
-
-        serviceImage.classList.remove('active');
-        
-        setTimeout(() => {
-            serviceImage.src = imageSrc;
-            serviceImage.classList.add('active');
-        }, 300); // Delay para a transição de opacidade
-    });
-});
-
 
 const slideContainer = document.querySelector('.clients-slide');
 let isHovered = false;
@@ -69,4 +44,25 @@ slideContainer.addEventListener('mouseenter', () => {
 slideContainer.addEventListener('mouseleave', () => {
     isHovered = false;
     slideContainer.style.animationPlayState = 'running';
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const faqButtons = document.querySelectorAll('.faq-button');
+
+    faqButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const faqItem = this.parentNode;
+            const isActive = faqItem.classList.contains('active');
+
+            // Fecha todos os itens
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            // Se o item clicado não estava ativo, ativa ele
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
+        });
+    });
 });
