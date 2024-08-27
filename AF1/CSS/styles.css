@@ -386,7 +386,7 @@ header.hero h1 {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    animation: slide 30s linear infinite;
+    animation: slide 15s linear infinite;
 }
 
 .clients-slide img {
