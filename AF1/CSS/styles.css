@@ -1,161 +1,3 @@
-/* Media Queries para Responsividade */
-
-/* Para telas menores que 768px (tablets e smartphones maiores) */
-@media (max-width: 768px) {
-    /* Cabeçalho */
-    header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    nav ul {
-        flex-direction: column;
-        width: 100%;
-        text-align: center;
-        padding: 0;
-    }
-    
-    nav ul li {
-        margin: 0.5rem 0;
-    }
-
-    .navbar .container {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    /* Seção Principal */
-    header.hero {
-        padding: 2rem 1rem;
-        height: auto;
-        background-size: cover;
-        background-position: center;
-    }
-
-    header.hero h1 {
-        font-size: 2.5rem;
-    }
-
-    /* Sobre Nós */
-    .about {
-        height: auto; /* Ajusta a altura para acomodar o conteúdo */
-        padding: 40px 20px;
-        background-attachment: scroll; /* Remove a fixação da imagem de fundo */
-    }
-
-    .about-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .about-content img {
-        width: 80%;
-        margin-right: 0;
-        margin-bottom: 20px;
-    }
-
-    .about-content p {
-        padding: 20px;
-        max-width: 100%;
-        font-size: 1rem;
-        line-height: 1.5;
-    }
-
-    /* Serviços */
-    .services {
-        padding: 30px 20px;
-    }
-
-    .services-item {
-        max-width: 100%;
-        margin: 10px auto; /* Centraliza os itens e evita sobreposição */
-        padding: 10px;
-        box-sizing: border-box; /* Garante que o padding e a borda não aumentem a largura total */
-    }
-
-    /* Blog */
-    .blog-mosaic {
-        grid-template-columns: 1fr;
-    }
-
-    /* Seção de Clientes */
-    .clients-carousel {
-        width: 100%;
-        overflow-x: auto; /* Permite rolar horizontalmente se necessário */
-    }
-
-    .clients-slide {
-        display: flex;
-        flex-wrap: nowrap; /* Garante que os itens não quebrem a linha */
-        width: 100%;
-        animation: none; /* Remove a animação para visualização mais clara em dispositivos móveis */
-    }
-
-    .clients-slide img {
-        max-width: 100%;
-        margin: 10px;
-        transition: transform 0.5s ease;
-    }
-}
-
-/* Para telas menores que 480px (smartphones pequenos) */
-@media (max-width: 480px) {
-    /* Cabeçalho */
-    header {
-        padding: 5px 10px;
-    }
-
-    .logo {
-        font-size: 18px;
-    }
-
-    /* Seção Principal */
-    header.hero h1 {
-        font-size: 1.8rem;
-    }
-
-    /* Sobre Nós */
-    .about-content {
-        gap: 10px;
-        padding: 10px;
-    }
-
-    .about-content img {
-        width: 100%;
-        margin-right: 0;
-        margin-bottom: 10px;
-    }
-
-    .about-content p {
-        font-size: 0.9rem;
-        padding: 10px;
-    }
-
-    /* Serviços */
-    .services-item {
-        padding: 10px;
-        max-width: 100%;
-    }
-
-    /* Blog */
-    .blog-mosaic {
-        grid-template-columns: 1fr;
-    }
-
-    /* Seção de Clientes */
-    .clients-slide {
-        flex-direction: column;
-    }
-}
-
-/* Reset CSS */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 html {
     scroll-padding-top: 60px; /* Ajuste conforme a altura da barra de navegação */
 }
@@ -167,69 +9,19 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow-x: hidden;
+
 }
 
-
-/* Cabeçalho */
+/* Tela Inicial */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 5px 10px;
     background-color: #054f6b;
 }
 
-
-/* Estilo do link da logo */
-.logo {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: #000; /* Cor do texto */
-    font-size: 24px; /* Tamanho da fonte */
-}
-
-.logo-img {
-    width: 40px; /* Ajuste conforme necessário */
-    height: auto; /* Mantém a proporção da imagem */
-    margin-right: 10px; /* Espaço entre a imagem e o texto */
-}
-
-.logo-text {
-    font-weight: bold; /* Estilo do texto */
-}
-
-
-nav ul {
-    list-style: none;
-    display: flex;
-}
-
-nav ul li {
-    margin-left: 20px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 16px;
-}
-
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #ff6600;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.btn:hover {
-    background-color: #cc5200;
-}
-
-/* Seção Principal */
 header.hero {
     background-image: url('../Images/background-img4.png');
     background-size: cover; /* Garante que a imagem cubra toda a área */
@@ -241,12 +33,18 @@ header.hero {
     align-items: center;
     color: #fff;
     text-align: center;
-    padding: 4rem 1rem;
+    padding: 0;
+    position: relative;
 }
 
 header.hero .container {
-    width: 100%;
+    position: absolute; /* Permite que o contêiner seja fixado */
+    top: 50%; /* Centraliza verticalmente */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta o centro do contêiner */
     text-align: center;
+    width: 100%; /* Opcional, para garantir que o texto se ajuste ao contêiner */
+    padding: 1rem; /* Ajuste o padding conforme necessário */
 }
 
 header.hero h1 {
@@ -254,22 +52,21 @@ header.hero h1 {
     margin: 0; /* Remove a margem padrão */
 }
 
-
 /* Barra de Navegação */
 .navbar {
     background-color: #054f6b;
-    padding: 1rem;
+    padding: 0px;
     position: fixed;
     width: 100%;
-    z-index: 1000;
-    
+    z-index: 1000;    
 }
 
 .navbar .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: auto;
+    width: 100%;
+    flex-direction: column;
 }
 
 .navbar .logo {
@@ -300,6 +97,7 @@ header.hero h1 {
     text-decoration: underline;
 }
 
+
 /*Sobre nós*/
 
 .about {
@@ -310,8 +108,8 @@ header.hero h1 {
     background-attachment: fixed; /* Mantém a imagem de fundo fixa enquanto rola */
     text-align: center;
     color: white;
-    height: 60vh;
-    display: flex;
+    height: auto;
+    display: block;
     justify-content: center;
     align-items: center; /* Centraliza o conteúdo verticalmente */
 }
@@ -325,7 +123,7 @@ header.hero h1 {
     gap: 20px;
     padding: 20px;
     border-radius: 10px;
-    max-width: 1100px; /* Define a largura máxima do conteúdo */
+    max-width: 100%; /* Define a largura máxima do conteúdo */
     width: 100%; /* Garante que a largura seja 100% do contêiner pai */
     box-sizing: border-box; /* Inclui padding e border na largura total */
 }
@@ -417,11 +215,16 @@ header.hero h1 {
 .service-image-container {
     margin-top: 20px; /* Espaçamento superior */
     text-align: center; /* Centraliza a imagem e a legenda */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 
 .service-image-container img {
     max-width: 100%; /* Garante que a imagem não ultrapasse a largura do contêiner */
     height: auto; /* Mantém a proporção da imagem */
+    width: auto;
     border-radius: 5px; /* Bordas arredondadas */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
@@ -692,14 +495,14 @@ cite {
 
 /* Seção de Contato */
 .contact {
+    padding: 50px 20px;
     background-color: #f4f4f4;
-    padding: 50px 0;
     text-align: center;
 }
 
 .contact h2 {
     color: #054f6b;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .contact-info {
@@ -767,7 +570,6 @@ footer {
 .floating-buttons .floating-button {
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
 }
-
 
 .whatsapp {
     background-color: #25D366; /* Cor verde do WhatsApp */
