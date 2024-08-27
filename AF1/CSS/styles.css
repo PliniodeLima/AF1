@@ -1,25 +1,153 @@
+/* Media Queries para Responsividade */
+
+/* Para telas menores que 768px (tablets e smartphones maiores) */
 @media (max-width: 768px) {
+    /* Cabeçalho */
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        padding: 0;
+    }
+    
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+
     .navbar .container {
         flex-direction: column;
+        width: 100%;
     }
 
-    .nav-links {
-        flex-direction: column;
-        width: 100%; /* Garante que a lista ocupe a largura total da tela */
-        align-items: center; /* Centraliza os itens dentro da lista */
+    /* Seção Principal */
+    header.hero {
+        padding: 2rem 1rem;
+        height: auto;
+        background-size: cover;
+        background-position: center;
     }
 
-    .nav-links li {
-        margin: 0.5rem 0; /* Ajusta o espaçamento vertical entre os itens */
-    }
-}
-
-@media (max-width: 480px) {
     header.hero h1 {
-        font-size: 2rem;
+        font-size: 2.5rem;
+    }
+
+    /* Sobre Nós */
+    .about {
+        height: auto; /* Ajusta a altura para acomodar o conteúdo */
+        padding: 40px 20px;
+        background-attachment: scroll; /* Remove a fixação da imagem de fundo */
+    }
+
+    .about-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .about-content img {
+        width: 80%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .about-content p {
+        padding: 20px;
+        max-width: 100%;
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    /* Serviços */
+    .services {
+        padding: 30px 20px;
+    }
+
+    .services-item {
+        max-width: 100%;
+        margin: 10px auto; /* Centraliza os itens e evita sobreposição */
+        padding: 10px;
+        box-sizing: border-box; /* Garante que o padding e a borda não aumentem a largura total */
+    }
+
+    /* Blog */
+    .blog-mosaic {
+        grid-template-columns: 1fr;
+    }
+
+    /* Seção de Clientes */
+    .clients-carousel {
+        width: 100%;
+        overflow-x: auto; /* Permite rolar horizontalmente se necessário */
+    }
+
+    .clients-slide {
+        display: flex;
+        flex-wrap: nowrap; /* Garante que os itens não quebrem a linha */
+        width: 100%;
+        animation: none; /* Remove a animação para visualização mais clara em dispositivos móveis */
+    }
+
+    .clients-slide img {
+        max-width: 100%;
+        margin: 10px;
+        transition: transform 0.5s ease;
     }
 }
 
+/* Para telas menores que 480px (smartphones pequenos) */
+@media (max-width: 480px) {
+    /* Cabeçalho */
+    header {
+        padding: 5px 10px;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    /* Seção Principal */
+    header.hero h1 {
+        font-size: 1.8rem;
+    }
+
+    /* Sobre Nós */
+    .about-content {
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .about-content img {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .about-content p {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    /* Serviços */
+    .services-item {
+        padding: 10px;
+        max-width: 100%;
+    }
+
+    /* Blog */
+    .blog-mosaic {
+        grid-template-columns: 1fr;
+    }
+
+    /* Seção de Clientes */
+    .clients-slide {
+        flex-direction: column;
+    }
+}
 
 /* Reset CSS */
 * {
