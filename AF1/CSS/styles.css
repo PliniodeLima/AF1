@@ -130,7 +130,7 @@ header.hero h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: auto;
 }
 
 .navbar .logo {
@@ -197,101 +197,95 @@ header.hero h1 {
 
 /* Seção de Serviços */
 .services {
-    padding: 2rem 1rem;
-    text-align: center;
-    background-color: #f4f4f4;
-    color:#054f6b;
+    background-color: #f4f4f4; /* Cor de fundo suave */
+    padding: 50px 20px; /* Espaçamento interno */
+    text-align: center; /* Centraliza o texto */
 }
 
-.services-container {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
+.services h2 {
+    color: #054f6b; /* Cor do título */
+    margin-bottom: 20px; /* Espaçamento abaixo do título */
+    font-size: 2rem; /* Tamanho da fonte do título */
 }
 
-.service-item {
-    width: 30%;
+.services-item {
+    margin: 20px 0; /* Espaçamento vertical entre os itens */
+    border: 1px solid #ddd; /* Borda leve */
+    border-radius: 5px; /* Bordas arredondadas */
+    overflow: hidden; /* Para esconder qualquer conteúdo que ultrapasse os limites */
+    background-color: #fff; /* Cor de fundo do item */
 }
 
-.service-item img {
+.services-button {
     width: 100%;
-    height: auto;
-}
-
-.service-item h3 {
-    margin-top: 10px;
-    font-size: 1.5rem;
-}
-
-.service-item p {
-    margin-top: 10px;
-    font-size: 1rem;
-}
-
-
-
-.accordion-item {
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.accordion-button {
-    width: 100%;
-    padding: 1rem;
+    padding: 15px;
     text-align: center;
-    background-color: #054f6b;
-    color: #fff;
+    background-color: #054f6b; /* Cor de fundo do botão */
+    color: #fff; /* Cor do texto */
     cursor: pointer;
     border: none;
     outline: none;
-    font-size: 1.2rem;
-    transition: background-color 0.3s ease;
-    font-weight: 600;
+    font-size: 1.2rem; /* Tamanho da fonte */
+    font-weight: 600; /* Peso da fonte */
+    transition: background-color 0.3s ease; /* Transição suave para a cor de fundo */
+    position: relative; /* Para posicionar o ícone de seta */
+    border-bottom: 1px solid #ddd; /* Linha separadora entre o título e a descrição */
 }
 
-.accordion-button:hover {
-    background-color: #003399;
+.services-button:hover {
+    background-color: #003399; /* Cor de fundo ao passar o mouse */
 }
 
-.accordion-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-    padding: 0 15px;
-    background-color: #f4f4f4;
+.services-button::after {
+    content: "▼"; /* Ícone de seta para baixo */
+    position: absolute;
+    right: 20px; /* Espaçamento da direita */
+    font-size: 1.2rem; /* Tamanho da fonte */
+    transition: transform 0.3s ease; /* Transição suave para a rotação */
 }
 
-.accordion-content p {
-    margin: 15px 0;
+.services-item.active .services-button::after {
+    transform: rotate(180deg); /* Rotaciona a seta quando o item está ativo */
 }
 
-.accordion-item.active .accordion-content {
-    max-height: 200px; /* Ajuste o valor conforme o conteúdo */
+.services-content {
+    max-height: 0; /* Começa com altura máxima de 0 para ocultar o conteúdo */
+    overflow: hidden; /* Oculta o conteúdo que ultrapassa a altura */
+    transition: max-height 0.3s ease; /* Transição suave para a altura máxima */
+    padding: 0 15px; /* Espaçamento interno */
+    background-color: #fff; /* Cor de fundo do conteúdo */
 }
 
-.accordion-item.active .accordion-button {
-    background-color: #003399;
+.services-content p {
+    margin: 15px 0; /* Espaçamento vertical do parágrafo */
+    font-size: 1rem; /* Tamanho da fonte */
+    color: #333; /* Cor do texto */
 }
 
+/* Estilo da Imagem e Legenda */
 .service-image-container {
-    margin-top: 20px;
-    text-align: center;
+    margin-top: 20px; /* Espaçamento superior */
+    text-align: center; /* Centraliza a imagem e a legenda */
 }
 
 .service-image-container img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: opacity 0.3s ease;
-    opacity: 0;
+    max-width: 100%; /* Garante que a imagem não ultrapasse a largura do contêiner */
+    height: auto; /* Mantém a proporção da imagem */
+    border-radius: 5px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
-.service-image-container img.active {
-    opacity: 1;
+.image-caption {
+    margin-top: 10px; /* Espaçamento acima da legenda */
+    font-size: 0.9rem; /* Tamanho da fonte da legenda */
+    color: #666; /* Cor do texto da legenda */
+    font-style: italic; /* Estilo em itálico */
 }
 
+/* Estilo para quando o conteúdo está visível */
+.services-item.active .services-content {
+    max-height: 500px; /* Altura máxima quando o conteúdo está visível */
+}
 
 /* Seção do Blog */
 .blog {
@@ -447,6 +441,77 @@ cite {
     font-weight: bold;
 }
 
+/* Seção de Perguntas Frequentes */
+.faq {
+    background-color: #f4f4f4; /* Cor de fundo suave */
+    padding: 50px 20px; /* Espaçamento interno */
+    text-align: center; /* Centraliza o texto */
+}
+
+.faq h2 {
+    color: #054f6b; /* Cor do título */
+    margin-bottom: 20px; /* Espaçamento abaixo do título */
+    font-size: 2rem; /* Tamanho da fonte do título */
+}
+
+.faq-item {
+    margin: 20px 0; /* Espaçamento vertical entre os itens */
+    border: 1px solid #ddd; /* Borda leve */
+    border-radius: 5px; /* Bordas arredondadas */
+    overflow: hidden; /* Para esconder qualquer conteúdo que ultrapasse os limites */
+    background-color: #fff; /* Cor de fundo do item */
+}
+
+.faq-button {
+    width: 100%;
+    padding: 15px;
+    text-align: left;
+    background-color: #054f6b; /* Cor de fundo do botão */
+    color: #fff; /* Cor do texto */
+    cursor: pointer;
+    border: none;
+    outline: none;
+    font-size: 1.2rem; /* Tamanho da fonte */
+    font-weight: 600; /* Peso da fonte */
+    transition: background-color 0.3s ease; /* Transição suave para a cor de fundo */
+    position: relative; /* Para posicionar o ícone de seta */
+    border-bottom: 1px solid #ddd; /* Linha separadora entre a pergunta e a resposta */
+}
+
+.faq-button:hover {
+    background-color: #003399; /* Cor de fundo ao passar o mouse */
+}
+
+.faq-button::after {
+    content: "▼"; /* Ícone de seta para baixo */
+    position: absolute;
+    right: 20px; /* Espaçamento da direita */
+    font-size: 1.2rem; /* Tamanho da fonte */
+    transition: transform 0.3s ease; /* Transição suave para a rotação */
+}
+
+.faq-item.active .faq-button::after {
+    transform: rotate(180deg); /* Rotaciona a seta quando o item está ativo */
+}
+
+.faq-content {
+    max-height: 0; /* Começa com altura máxima de 0 para ocultar o conteúdo */
+    overflow: hidden; /* Oculta o conteúdo que ultrapassa a altura */
+    transition: max-height 0.3s ease; /* Transição suave para a altura máxima */
+    padding: 0 15px; /* Espaçamento interno */
+    background-color: #fff; /* Cor de fundo do conteúdo */
+}
+
+.faq-content p {
+    margin: 15px 0; /* Espaçamento vertical do parágrafo */
+    font-size: 1rem; /* Tamanho da fonte */
+    color: #333; /* Cor do texto */
+}
+
+/* Estilo para quando o conteúdo está visível */
+.faq-item.active .faq-content {
+    max-height: 500px; /* Altura máxima quando o conteúdo está visível */
+}
 
 /* Sobre Nós */
 .about {
@@ -546,6 +611,11 @@ footer {
     background-color: #f0f0f0;
     transform: scale(1.1);
 }
+
+.floating-buttons .floating-button {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+}
+
 
 .whatsapp {
     background-color: #25D366; /* Cor verde do WhatsApp */
