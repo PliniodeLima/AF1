@@ -130,6 +130,7 @@ header.hero h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .navbar .logo {
@@ -142,10 +143,12 @@ header.hero h1 {
     list-style: none;
     display: flex;
     justify-content: center; /* Centraliza os itens da lista */
+    flex-wrap: wrap; /* Permite que os itens se movam para a linha seguinte se necessário */
+
 }
 
 .nav-links li {
-    margin: 0 1rem;
+    margin: 0.5rem 1rem; /* Ajuste o espaçamento entre os itens */
 }
 
 .nav-links a {
